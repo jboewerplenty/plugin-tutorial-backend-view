@@ -5,7 +5,6 @@ namespace MyFirstView\Controllers;
 use Plenty\Plugin\Controller;
 use Plenty\Plugin\Templates\Twig;
 use Plenty\Plugin\Application;
-use Auth;
 use Plenty\Modules\User\Contracts\UserRepositoryContract;
 use Plenty\Modules\Authorization\Services\AuthHelper;
 
@@ -36,7 +35,11 @@ class ContentController extends Controller
                         return $UserRepo->getAll();
                     }
                 ),
-                'UserID'        => Auth::user()->id
+                'CurrentUser'		=> $AuthHelper->processUnguarded(
+                    function () use ($UserRepo) {
+                        return $UserRepo->getCurrentUser();
+                    }
+                ),
             ]
         ]);
 
