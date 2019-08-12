@@ -40,7 +40,8 @@ class ContentController extends Controller
                     function () use ($UserRepo) {
                         return $UserRepo->getUserById(1);
                     }
-                )
+                ),
+                'CurrentUser'   => $UserRepo->getCurrentUser(),
             ]
         ]);
 
