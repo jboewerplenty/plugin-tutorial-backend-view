@@ -35,11 +35,6 @@ class ContentController extends Controller
                         return $UserRepo->getAll();
                     }
                 ),
-                'CurrentUser'		=> $AuthHelper->processUnguarded(
-                    function () use ($UserRepo) {
-                        return $UserRepo->getCurrentUser();
-                    }
-                ),
             ]
         ]);
 
