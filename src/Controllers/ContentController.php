@@ -32,7 +32,7 @@ class ContentController extends Controller
             'relay' => [
                 'AllUsers'		=> $AuthHelper->processUnguarded(
                     function () use ($UserRepo) {
-                        return $UserRepo->getAll();
+                        return $UserRepo->getCurrentUser();
                     }
                 ),
             ]
