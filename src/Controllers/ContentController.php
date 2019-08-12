@@ -30,7 +30,11 @@ class ContentController extends Controller
 
         return pluginApp(Twig::class)->render('MyFirstView::DB.Example', [
             'relay' => [
-                'AllUsers'		=>  $UserRepo->getCurrentUser(),
+                'AllUsers'		=> $AuthHelper->processUnguarded(
+                    function () use ($UserRepo) {
+                        return $UserRepo->getAll();
+                    }
+                ),
             ]
         ]);
 
