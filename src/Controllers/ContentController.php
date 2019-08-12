@@ -41,7 +41,6 @@ class ContentController extends Controller
                         return $UserRepo->getUserById(1);
                     }
                 ),
-                'CurrentUser'   => $UserRepo->getCurrentUser(),
             ]
         ]);
 
