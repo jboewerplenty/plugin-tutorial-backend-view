@@ -11,9 +11,6 @@ use Plenty\Plugin\ServiceProvider;
     {
         public function register()
         {
-          /* @var UserRepositoryContract $UserRepo */
-			$UserRepo = pluginApp(UserRepositoryContract::class);
-            
-            $test = $UserRepo->getCurrentUser();
+            $this->getApplication()->register(MyFirstViewRouteProvider::class);
         }
     }

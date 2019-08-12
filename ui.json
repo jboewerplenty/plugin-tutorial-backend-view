@@ -6,7 +6,7 @@
       "label": "Hello World",
       "menu": "start",
       "urlKey": "hello-world",
-      "entryPoint": "index.html"
+      "entryPoint": "/test"
     }
   ]
 }
